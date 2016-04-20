@@ -1,7 +1,9 @@
 CC=gcc
 
+All:client service
+	
 client:
-	$(CC) tcpclient.cpp *.c -o tcpclient
+	$(CC) tcpclient.cpp *.c -o client
 
 service:
-	$(CC) tcpservice.cpp *.c -o tcpservice
+	$(CC) tcpservice.cpp *.c -o service
