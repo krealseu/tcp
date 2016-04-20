@@ -1,15 +1,11 @@
 #include<stdio.h>
-
-
 #include<sys/socket.h>
-#include<sys/types.h>
-#include<unistd.h>
 #include<netinet/in.h>
 #include<arpa/inet.h>
 
 #define mprintf printf
 
-int create_client_socket(char * address,int port)
+int create_client_socket(const char * address,int port)
 {
   int sock = -1;
   if((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0){

@@ -7,3 +7,6 @@ client:
 
 service:
 	$(CC) tcpservice.cpp *.c -o service
+
+clean:
+	rm *.exe
