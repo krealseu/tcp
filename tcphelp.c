@@ -26,7 +26,7 @@ int create_client_socket(const char * address,int port)
 }
 
 int create_service_socket(int port){
-  int sock;
+  int sock = -1;
   int reuse = 1;
   /* Server addess */
   struct sockaddr_in server_address = (struct sockaddr_in){  

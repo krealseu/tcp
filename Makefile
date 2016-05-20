@@ -1,12 +1,13 @@
 CC=gcc
 
-All:client service
+all :client service
 	
-client:
-	$(CC) tcpclient.cpp *.c -o client
+client:tcpclient.cpp tcphelp.o
+	$(CC) tcpclient.cpp tcphelp.o -o client
 
-service:
-	$(CC) tcpservice.cpp *.c -o service
+service:tcpservice.cpp tcphelp.o
+	$(CC) tcpservice.cpp tcphelp.o -o service
 
+tcphelp.o:tcphelp.c tcphelp.h
 clean:
-	rm *.exe
+	rm *.exe *.o

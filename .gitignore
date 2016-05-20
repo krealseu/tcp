@@ -1,4 +1,5 @@
 *.exe
+*.o
 .settings
 .project
 .cproject
