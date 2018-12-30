@@ -4,8 +4,9 @@
 #include <sys/socket.h>
 #include<unistd.h>
 #include <pthread.h>
+#include <time.h>
 
-#define msend(fd,x) send(fd, x, strlen(x), 0);
+#define msend(fd,x) send(fd, x, strlen(x), 0)
 
 void mrecv(int fd){
 	int n;
@@ -36,14 +37,26 @@ int main() {
 	if (sfd == -1)
 		return -1;
 	listen(sfd, 5);
+   int counts = 0;
    while(1){
        int client = accept(sfd, NULL, NULL);
        char recvline[2000];
-       int n = recv(client, recvline, 2000, 0);
-       recvline[n] = '\0';
-       printf("recv data frome client:%s\n", recvline);
-       char dd[] = "HTTP/1.1  200  OK/r/n/r/n<html><body>hdhd</body></html>";
-       msend(client,dd);
+       time_t tt = time(NULL);//这句返回的只是一个时间cuo
+       tm* t= localtime(&tt);
+       char data[100];
+       sprintf(data,"HTTP/1.1  200  OK\r\n\r\n\
+       <html><head>\
+       <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\
+       <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/>\
+       </head><body>%d-%02d-%02d %02d:%02d:%02d</body></html>", 
+              t->tm_year + 1900,t->tm_mon + 1,t->tm_mday,t->tm_hour,t->tm_min,t->tm_sec);
+       //int n = recv(client, recvline, 2000, 0);
+       //recvline[n] = '\0';
+       //printf("recv data frome client:%s\n", recvline);
+       msend(client,data);
+       char echo[20];
+       sprintf(echo,"Ask times%d",++counts);
+       puts(echo);
        //msend(client,"HTTP/1.1  200  OK\r\n<html><body>hdhd</body></html>");
        close(client);
     }
