@@ -1,5 +1,8 @@
 *.exe
 *.o
+.CmakeFiles
+.CmakeCache.txt
+.cmake_install.cmake
 .settings
 .project
 .cproject

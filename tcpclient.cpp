@@ -4,14 +4,14 @@
 #include<unistd.h>
 #include "tcphelp.h"
 
-#define PORT 8080
+#define PORT 8008
 #define  IP_ADDRESS "127.0.0.1"
 
 
 int main(int argc,char **argv)
 {
 	int sockfd;
-	sockfd=create_client_socket(IP_ADDRESS ,8080);
+	sockfd=create_client_socket(IP_ADDRESS ,PORT);
 
 	int n;
 	char sendline[20],recvline[20];
