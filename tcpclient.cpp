@@ -14,10 +14,10 @@ int main(int argc,char **argv)
 	sockfd=create_client_socket(IP_ADDRESS ,PORT);
 
 	int n;
-	char sendline[20],recvline[20];
+	char sendline[20],recvline[500];
 	printf("connect with server...\n");
 	send(sockfd,"KEY",strlen("KEY"),0);
-	n=recv(sockfd,recvline,20,0);
+	n=recv(sockfd,recvline,500,0);
 	recvline[n]='\0';
 	printf("recv data is:%s\n",recvline);
 	close(sockfd);

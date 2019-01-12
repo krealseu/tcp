@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anemone/c/tcp
+CMAKE_SOURCE_DIR = /home/anemone/anemone/c/tcp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anemone/c/tcp
+CMAKE_BINARY_DIR = /home/anemone/anemone/c/tcp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anemone/c/tcp/CMakeFiles /home/anemone/c/tcp/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/anemone/anemone/c/tcp/CMakeFiles /home/anemone/anemone/c/tcp/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/anemone/c/tcp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/anemone/anemone/c/tcp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

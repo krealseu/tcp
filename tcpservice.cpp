@@ -40,10 +40,9 @@ int main() {
    int counts = 0;
    while(1){
        int client = accept(sfd, NULL, NULL);
-       char recvline[2000];
        time_t tt = time(NULL);//这句返回的只是一个时间cuo
        tm* t= localtime(&tt);
-       char data[100];
+       char data[500];
        sprintf(data,"HTTP/1.1  200  OK\r\n\r\n\
        <html><head>\
        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\
